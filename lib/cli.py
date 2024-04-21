@@ -1,27 +1,30 @@
 # lib/cli.py
 
-from helpers import (
-    exit_program,
-    helper_1
-)
+from models.shopper import Shopper
+from models.book import Book
 
 
 def main():
-    while True:
-        menu()
-        choice = input("> ")
-        if choice == "0":
-            exit_program()
-        elif choice == "1":
-            helper_1()
-        else:
-            print("Invalid choice")
-
+    print(Shopper.get_all())
+    print(Book.get_all())
 
 def menu():
-    print("Please select an option:")
+    print("Welcome to the store!")
     print("0. Exit the program")
-    print("1. Some useful function")
+    print("1. Enter Store")
+
+def prompts():
+    #Welcome to store
+    #What can I help you with today?
+    #View library
+    #Sell items
+    #Search for item
+    #Search for genre
+    #View cart
+    #Are you ready to check out?
+    #
+    pass
+
 
 
 if __name__ == "__main__":
