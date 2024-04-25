@@ -99,6 +99,21 @@ class Shopper():
         return row
     
     @classmethod
+    def find_user_by_username(cls, username):
+        sql = """SELECT * FROM shoppers WHERE username = ?"""
+        row = cur.execute(sql, (username,)).fetchone()
+
+        return [cls.db_to_obj(row) if row else None]
+    
+    @classmethod
+    def check_username(cls, username):
+        user = Shopper.find_user_by_username(username)
+        if user == None:
+            return False
+        else:
+            return True
+    
+    @classmethod
     def get_all(cls):
         sql = """SELECT * FROM shoppers"""
         rows = cur.execute(sql).fetchall()

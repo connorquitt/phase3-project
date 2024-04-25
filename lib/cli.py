@@ -2,10 +2,12 @@
 
 from models.shopper import Shopper
 from models.book import Book
+from helpers.account import account
 
 
 def main():
-    print('omg hi')
+    account()
+
 
                 
 
