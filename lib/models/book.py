@@ -96,7 +96,7 @@ class Book():
     
     @classmethod
     def find_item_by_id(cls, id):
-        sql = """SELECT * FROM iventory WHERE id = ?"""
+        sql = """SELECT * FROM inventory WHERE id = ?"""
         row = cur.execute(sql, (id,)).fetchone()
 
         return row
