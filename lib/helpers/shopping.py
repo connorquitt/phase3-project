@@ -1,6 +1,8 @@
 from models.book import Book
 from models.shopper import Shopper
 
+cart = []
+
 def view_collection():
     pass
 
