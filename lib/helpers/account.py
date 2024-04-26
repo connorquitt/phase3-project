@@ -1,6 +1,22 @@
 
 from models.shopper import Shopper
 
+def account():
+    while True:
+        print('Welcome, do you have an account')
+        choice = input('Y/N: ')
+        if choice.upper() == 'Y':
+            active_user = login()
+            if active_user:
+                return active_user
+        elif choice.upper() == 'N':
+            return create_account()
+            
+            
+        else:
+            print('Invalid choice, please enter either Y or N')
+
+
 def create_account():
     while True:
         username = input('Username: ')
@@ -11,9 +27,9 @@ def create_account():
             password = input('Password: ')
             funds = input('How much money would you like to add: ')
         try:
-            shopper = Shopper.create_user(username, password, funds)
+            user = Shopper.create_user(username, password, funds)
             print('Account created successfully')
-            print(Shopper.get_all())
+            return user
         except Exception as exc:
             print('An error occured creating your account, please try again')
         
@@ -33,18 +49,4 @@ def login():
         else:
             print('Username does not exist')
     
-
-
-def account():
-    while True:
-        print('Welcome, do you have an account')
-        choice = input('Y/N: ')
-        if choice.upper() == 'Y':
-            login()
-            break
-        elif choice.upper() == 'N':
-            create_account()
-            break
-        else:
-            print('Invalid choice, please enter either Y or N')
             

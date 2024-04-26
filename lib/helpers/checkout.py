@@ -8,3 +8,6 @@ def sell_item():
     ##use this to create an item with user input to kinda sell it
     pass
 
+def checkout():
+    pass
+

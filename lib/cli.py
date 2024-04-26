@@ -3,11 +3,13 @@
 from models.shopper import Shopper
 from models.book import Book
 from helpers.account import account
+from helpers.shopping import shopping
 
 
 def main():
-    account()
-    print('done')
+    active_shopper = account()
+    print('leaving account function')
+    shopping(active_shopper)
 
 
                 
