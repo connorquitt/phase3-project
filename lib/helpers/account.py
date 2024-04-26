@@ -13,9 +13,9 @@ def create_account():
         try:
             shopper = Shopper.create_user(username, password, funds)
             print('Account created successfully')
+            print(Shopper.get_all())
         except Exception as exc:
             print('An error occured creating your account, please try again')
-            break
         
 
 def login():
@@ -23,12 +23,15 @@ def login():
         username = input("enter username: ")
         user = Shopper.find_user_by_username(username)
         if user:
-            print(user)
             password = input('Enter password: ')
             if user.password == password:
                 print('login successful')
                 print(f'Welcome back {user.username}!')
                 return user
+            else:
+                print('Incorrect password')
+        else:
+            print('Username does not exist')
     
 
 
@@ -38,8 +41,10 @@ def account():
         choice = input('Y/N: ')
         if choice.upper() == 'Y':
             login()
+            break
         elif choice.upper() == 'N':
             create_account()
+            break
         else:
             print('Invalid choice, please enter either Y or N')
             

@@ -7,6 +7,7 @@ from helpers.account import account
 
 def main():
     account()
+    print('done')
 
 
                 
