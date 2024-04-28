@@ -1,6 +1,8 @@
 from models.book import Book
 from models.shopper import Shopper
 
+##move all cart functionality into one function so i don't have to do this loop and import it into shopping function
+
 cart = []
 
 def view_collection():
@@ -34,7 +36,12 @@ def search():
             print('Invalid choice, please select from author, title, or genre')
 
 def checkout():
-    pass
+    while True:
+        if len(cart) > 0:
+            for item in cart:
+                pass
+        else:
+            pass
 
 def shopping(user):
     while True:

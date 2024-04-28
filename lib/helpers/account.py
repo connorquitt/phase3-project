@@ -22,12 +22,10 @@ def create_account():
         username = input('Username: ')
         if Shopper.check_username(username) == True:
             print('Username is taken')
-            create_account()
         else:
             password = input('Password: ')
-            funds = input('How much money would you like to add: ')
         try:
-            user = Shopper.create_user(username, password, funds)
+            user = Shopper.create_user(username, password)
             print('Account created successfully')
             return user
         except Exception as exc:

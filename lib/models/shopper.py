@@ -1,10 +1,9 @@
 from models.__init__ import (con, cur)
 
 class Shopper():
-    def __init__(self, username, password, funds=0, id=None):
+    def __init__(self, username, password, id=None):
         self.username = username
         self.password = password
-        self.funds = funds
         self.id = id
 
     
@@ -28,15 +27,6 @@ class Shopper():
         else:
             print('password must be a string, and at least 5 characters')
 
-    @property
-    def set_funds(shopper):
-        return shopper._funds
-    @set_funds.setter
-    def set_funds(shopper, funds):
-        if isinstance(funds, int):
-            shopper._funds = funds
-        else:
-            print('funds must be a number')
 
     @classmethod
     def create_table(cls):

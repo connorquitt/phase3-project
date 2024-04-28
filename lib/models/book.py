@@ -1,11 +1,10 @@
 from models.__init__ import (con, cur)
 
 class Book():
-    def __init__(self, title, author, genre, price=0, owner_id=None, id=None):
+    def __init__(self, title, author, genre, owner_id=None, id=None):
         self.title = title
         self.author = author
         self.genre = genre
-        self.price = price
         self.owner_id = owner_id
         self.id = id
 
@@ -39,15 +38,6 @@ class Book():
         else:
             print('genre must be a string')
     
-    @property
-    def price(self):
-        return self._price
-    @price.setter
-    def price(self, price):
-        if isinstance(price, int):
-            self._price = price
-        else:
-            print('price must be an integer')
     
     @classmethod
     def create_table(cls):
