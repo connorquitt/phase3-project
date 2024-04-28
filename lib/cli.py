@@ -12,20 +12,6 @@ def main():
     shopping(active_shopper)
 
 
-                
-
-def prompts():
-    #Welcome to store
-    #What can I help you with today?
-    #View library
-    #Sell items
-    #Search for item
-    #Search for genre
-    #View cart
-    #Are you ready to check out?
-    #
-    pass
-
 
 
 if __name__ == "__main__":
