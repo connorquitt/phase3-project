@@ -7,6 +7,7 @@ cart = []
 
 def view_collection():
     print(Book.get_all())
+    ##change to only print books with the owner id of 1
 
 def add_to_cart():
     print('Please enter the id of the book you would like to add')
@@ -15,7 +16,7 @@ def add_to_cart():
     cart.append(curr_book)
 
 def view_cart():
-    print(cart)
+    print(cart[2])
 
 def empty_cart():
     print(cart)
@@ -39,9 +40,10 @@ def checkout():
     while True:
         if len(cart) > 0:
             for item in cart:
+                ##change owner_id and remove from cart
                 pass
         else:
-            pass
+            print("you're cart appears to be empty, please add items before checking out")
 
 def shopping(user):
     while True:

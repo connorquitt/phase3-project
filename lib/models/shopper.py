@@ -33,8 +33,7 @@ class Shopper():
         sql = """CREATE TABLE IF NOT EXISTS shoppers (
         id INTEGER PRIMARY KEY,
         username TEXT,
-        password TEXT,
-        funds INTEGER
+        password TEXT
         );"""
 
         cur.execute(sql)
@@ -48,15 +47,15 @@ class Shopper():
 
     @classmethod
     def db_to_obj(cls, row):
-        id, username, password, funds = row 
-        return cls(username, password, funds, id,)
+        id, username, password = row 
+        return cls(username, password, id)
     
 
     @classmethod
-    def create_user(cls, username, password, funds=0):
-        shopper = cls(username, password, funds)
-        sql = """INSERT INTO shoppers (username, password, funds) VALUES (?, ?, ?)"""
-        cur.execute(sql, (shopper.username, shopper.password, shopper.funds))
+    def create_user(cls, username, password):
+        shopper = cls(username, password)
+        sql = """INSERT INTO shoppers (username, password) VALUES (?, ?)"""
+        cur.execute(sql, (shopper.username, shopper.password))
         con.commit()
     
     
@@ -75,11 +74,6 @@ class Shopper():
     def update_password(cls, password, id):
         sql = """UPDATE shoppers SET password = ? WHERE id = ?"""
         cur.execute(sql, (password, id,))
-
-    @classmethod
-    def update_funds(cls, funds, id):
-        sql = """UPDATE shoppers SET funds = ? WHERE id = ?"""
-        cur.execute(sql, (funds, id,))
 
     @classmethod
     def find_user_by_id(cls, id):

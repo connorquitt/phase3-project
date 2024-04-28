@@ -8,7 +8,7 @@ def fill():
     Book.create_table()
 
 
-    Shopper.create_user('paul', 'password', 90)
+    Shopper.create_user('paul', 'password')
     Shopper.create_user('Josh', 'password')
 
     Book.create_item('Capitalist Realism', 'Mark Fisher', 'Political')

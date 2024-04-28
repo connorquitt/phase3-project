@@ -46,7 +46,6 @@ class Book():
         title TEXT,
         author TEXT,
         genre TEXT,
-        price INTEGER,
         owner_id INTEGER
         );"""
 
@@ -61,15 +60,15 @@ class Book():
 
     @classmethod
     def db_to_obj(cls, row):
-        id, title, author, genre, price, owner_id = row 
-        return cls(title, author, genre, price, owner_id, id,)
+        id, title, author, genre, owner_id = row 
+        return cls(title, author, genre, owner_id, id,)
     
 
     @classmethod
-    def create_item(cls, title, author, genre, price=0, owner_id=None):
-        item = cls(title, author, genre, price, owner_id)
-        sql = """INSERT INTO inventory (title, author, genre, price, owner_id) VALUES (?, ?, ?, ?, ?)"""
-        cur.execute(sql, (item.title, item.author, item.genre, item.price, item.owner_id,))
+    def create_item(cls, title, author, genre, owner_id=None):
+        item = cls(title, author, genre, owner_id)
+        sql = """INSERT INTO inventory (title, author, genre, owner_id) VALUES (?, ?, ?, ?)"""
+        cur.execute(sql, (item.title, item.author, item.genre, item.owner_id,))
         con.commit()
     
     
@@ -78,11 +77,6 @@ class Book():
         sql = """DELETE FROM iventory WHERE id = ?"""
         cur.execute(sql, (id,))
         con.commit()
-
-    @classmethod
-    def update_price(cls, price, id):
-        sql = """UPDATE iventory SET price = ? WHERE id = ?"""
-        cur.execute(sql, (price, id,))
     
     @classmethod
     def find_item_by_id(cls, id):
