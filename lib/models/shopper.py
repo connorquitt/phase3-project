@@ -75,6 +75,7 @@ class Shopper():
         sql = """UPDATE shoppers SET password = ? WHERE id = ?"""
         cur.execute(sql, (password, id,))
 
+
     @classmethod
     def find_user_by_id(cls, id):
         sql = """SELECT * FROM shoppers WHERE id = ?"""

@@ -7,7 +7,7 @@ def fill():
     Book.drop_table()
     Book.create_table()
 
-
+    Shopper.create_user('STORE', 'password')
     Shopper.create_user('paul', 'password')
     Shopper.create_user('Josh', 'password')
 

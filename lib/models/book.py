@@ -1,7 +1,7 @@
 from models.__init__ import (con, cur)
 
 class Book():
-    def __init__(self, title, author, genre, owner_id=None, id=None):
+    def __init__(self, title, author, genre, owner_id=1, id=None):
         self.title = title
         self.author = author
         self.genre = genre
@@ -65,7 +65,7 @@ class Book():
     
 
     @classmethod
-    def create_item(cls, title, author, genre, owner_id=None):
+    def create_item(cls, title, author, genre, owner_id=1):
         item = cls(title, author, genre, owner_id)
         sql = """INSERT INTO inventory (title, author, genre, owner_id) VALUES (?, ?, ?, ?)"""
         cur.execute(sql, (item.title, item.author, item.genre, item.owner_id,))
@@ -83,7 +83,13 @@ class Book():
         sql = """SELECT * FROM inventory WHERE id = ?"""
         row = cur.execute(sql, (id,)).fetchone()
 
-        return row
+        return cls.db_to_obj(row) if row else None
+    
+    @classmethod
+    def update_owner_id(cls, user_id, id):
+        sql = """UPDATE inventory SET owner_id = ? WHERE id = ?"""
+        cur.execute(sql, (user_id, id,))
+        con.commit()
     
     @classmethod
     def get_all(cls):
@@ -91,3 +97,10 @@ class Book():
         rows = cur.execute(sql).fetchall()
         
         return rows
+    
+    @classmethod
+    def get_all_available(cls, owner_id):
+        sql = """SELECT * FROM inventory WHERE owner_id = ?"""
+        rows = cur.execute(sql, (owner_id,)).fetchall()
+        
+        return [cls.db_to_obj(row) for row in rows]

@@ -18,11 +18,13 @@ if __name__ == "__main__":
     main()
 
 #NEED TO DO TMR
-##set up checkout function to remove all items from cart and change their owner_id
-##define shopper function to change owner_id
-##change view_collection to only show the items with store owner_id
-##define sell functions to sell any items owned by active shopper or to define new items to sell
-##give function to Book class to show all books owned by active shopper
-##define books function to show all books with that shoppers id
-##style the print for view collection as well as maybe find a like time thing to delay the stuff popping up
-##generally syle all of it
+##set up checkout function to remove all items from cart and change their owner_id DONE
+##define book function to change owner_id DONE
+##change view_collection to only show the items with store owner_id DONE
+##define sell functions to sell any items owned by active shopper or to define new items to sell DONE
+##give function to Book class to show all books owned by active shopper DONE
+##set up view functions to only show title and not the whole object DONE
+##find way to add timers between things happening so its not so disorienting
+##consolodate functions so each page is less disorienting
+##set up way to sell new item (used to create new item)
+##test the create property testers
