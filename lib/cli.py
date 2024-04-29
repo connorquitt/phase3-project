@@ -24,3 +24,5 @@ if __name__ == "__main__":
 ##define sell functions to sell any items owned by active shopper or to define new items to sell
 ##give function to Book class to show all books owned by active shopper
 ##define books function to show all books with that shoppers id
+##style the print for view collection as well as maybe find a like time thing to delay the stuff popping up
+##generally syle all of it
