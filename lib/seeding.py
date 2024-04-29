@@ -15,5 +15,8 @@ def fill():
     Book.create_item('Steal as much as you can', 'Nathalie Olah', 'Political')
     Book.create_item('Tao Te Ching', 'Lao Tzu', 'Religious')
     Book.create_item('The Corrosion of Character', 'Richard Sennett', 'Political')
+    Book.create_item('Unwanted', 'Jay Stringer', 'Religious')
+    Book.create_item('Becoming us', 'Jeff McCord', 'Religious')
+    Book.create_item('Fresh Power', 'Cymbala', 'Religious')
 
 fill()

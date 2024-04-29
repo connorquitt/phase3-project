@@ -24,7 +24,10 @@ if __name__ == "__main__":
 ##define sell functions to sell any items owned by active shopper or to define new items to sell DONE
 ##give function to Book class to show all books owned by active shopper DONE
 ##set up view functions to only show title and not the whole object DONE
+##set up way to sell new item (used to create new item) DONE
+##define search functions
+##define manager mode (idk what that means but maybe set it up for them to see everything thats ever been available to use get_all)
+##set up more books in seeding
 ##find way to add timers between things happening so its not so disorienting
 ##consolodate functions so each page is less disorienting
-##set up way to sell new item (used to create new item)
 ##test the create property testers

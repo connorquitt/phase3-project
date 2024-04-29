@@ -6,7 +6,7 @@ cart = []
 def view_collection():
     available_items = Book.get_all_available(1)
     for item in available_items:
-        print(item.title)
+        print(f'{item.id}) | {item.title} | {item.genre}')
 
 def add_to_cart():
     print('Please enter the id of the book you would like to add')
@@ -56,6 +56,13 @@ def sell_items(user):
         Book.update_owner_id(1, item.id)
     print('done')
 
+def sell_new_item():
+    print('Please tell us a little about the book!')
+    title = input('Title > ')
+    author = input('Author > ')
+    genre = input('Genre > ')
+    Book.create_item(title, author, genre)
+
 def shopping(user):
     while True:
         print(f'Welcome {user.username}, how can I help you today?')
@@ -67,6 +74,7 @@ def shopping(user):
         print('6) checkout')
         print('7) view owned items')
         print('8) sell owned items')
+        print('9) sell new item')
         choice = input('Please select an option > ')
         if choice == '1':
             view_collection()
@@ -84,3 +92,5 @@ def shopping(user):
             view_owned_items(user)
         elif choice == '8':
             sell_items(user)
+        elif choice == '9':
+            sell_new_item()
