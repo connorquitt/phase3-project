@@ -1,5 +1,4 @@
 from models.book import Book
-from models.shopper import Shopper
 
 cart = []
 

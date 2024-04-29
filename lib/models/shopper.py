@@ -57,7 +57,8 @@ class Shopper():
         sql = """INSERT INTO shoppers (username, password) VALUES (?, ?)"""
         cur.execute(sql, (shopper.username, shopper.password))
         con.commit()
-    
+
+        return shopper
     
     @classmethod
     def delete_user(cls, id):

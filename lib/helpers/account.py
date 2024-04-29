@@ -10,7 +10,8 @@ def account():
             if active_user:
                 return active_user
         elif choice.upper() == 'N':
-            return create_account()
+            active_user = create_account()
+            return active_user
             
             
         else:
