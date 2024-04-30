@@ -1,14 +1,11 @@
 # lib/cli.py
 
-from models.shopper import Shopper
-from models.book import Book
 from helpers.account import account
 from helpers.shopping import shopping
 
 
 def main():
     active_shopper = account()
-    print('leaving account function')
     shopping(active_shopper)
 
 
@@ -25,15 +22,11 @@ if __name__ == "__main__":
 ##give function to Book class to show all books owned by active shopper DONE
 ##set up view functions to only show title and not the whole object DONE
 ##set up way to sell new item (used to create new item) DONE
-##define search functions
-##define manager mode (idk what that means but maybe set it up for them to see everything thats ever been available to use get_all)
+##define search functions DONE
 ##set up more books in seeding DONE
-##find way to add timers between things happening so its not so disorienting
-##consolodate functions so each page is less disorienting
-##test the create property testers
+##consolodate functions so each page is less disorienting DONE
 
-##Starting options
-#View all available books
-#search
-#view/update cart
-#approach counter (buy and sell)
+
+##define manager mode (idk what that means but maybe set it up for them to see everything thats ever been available to use get_all)
+##find way to add timers between things happening so its not so disorienting
+##test the create property testers
