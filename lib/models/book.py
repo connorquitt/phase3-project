@@ -104,3 +104,24 @@ class Book():
         rows = cur.execute(sql, (owner_id,)).fetchall()
         
         return [cls.db_to_obj(row) for row in rows]
+    
+    @classmethod
+    def find_item_by_author(cls, author):
+        sql = """SELECT * FROM inventory WHERE author = ?"""
+        rows = cur.execute(sql, (author,)).fetchall()
+
+        return [cls.db_to_obj(row) for row in rows]
+    
+    @classmethod
+    def find_item_by_title(cls, title):
+        sql = """SELECT * FROM inventory WHERE title = ?"""
+        rows = cur.execute(sql, (title,)).fetchall()
+
+        return [cls.db_to_obj(row) for row in rows]
+    
+    @classmethod
+    def find_item_by_genre(cls, genre):
+        sql = """SELECT * FROM inventory WHERE genre = ?"""
+        rows = cur.execute(sql, (genre,)).fetchall()
+
+        return [cls.db_to_obj(row) for row in rows]
