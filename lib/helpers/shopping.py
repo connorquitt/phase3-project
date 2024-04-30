@@ -43,7 +43,7 @@ def search():
                     print(f'{item.id}) | {item.title} | {item.author}')
             else:
                 print(f'No results for "{title}"')
-                
+                return None
         elif choice.lower() == 'genre':
             genre = input('genre > ')
             results = Book.find_item_by_genre(genre)
