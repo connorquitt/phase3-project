@@ -27,7 +27,13 @@ if __name__ == "__main__":
 ##set up way to sell new item (used to create new item) DONE
 ##define search functions
 ##define manager mode (idk what that means but maybe set it up for them to see everything thats ever been available to use get_all)
-##set up more books in seeding
+##set up more books in seeding DONE
 ##find way to add timers between things happening so its not so disorienting
 ##consolodate functions so each page is less disorienting
 ##test the create property testers
+
+##Starting options
+#View all available books
+#search
+#view/update cart
+#approach counter (buy and sell)

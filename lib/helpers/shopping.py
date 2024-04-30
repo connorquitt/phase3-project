@@ -23,7 +23,7 @@ def empty_cart():
 def search():
     while True:
         print('How would you like to search?')
-        choice = input('please enter author, title, or genre > ')
+        choice = input('please enter author, title, genre, or return > ')
         if choice.lower() == 'author':
             author = input('Author > ')
             results = Book.find_item_by_author(author)
@@ -43,7 +43,7 @@ def search():
                     print(f'{item.id}) | {item.title} | {item.author}')
             else:
                 print(f'No results for "{title}"')
-                return None
+                
         elif choice.lower() == 'genre':
             genre = input('genre > ')
             results = Book.find_item_by_genre(genre)
@@ -54,6 +54,8 @@ def search():
             else:
                 print(f'No results for "{genre}"')
                 return None
+        elif choice.lower() == 'return':
+            return None
         else:
             print('Invalid choice, please select from author, title, or genre')
 
