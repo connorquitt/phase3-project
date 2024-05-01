@@ -38,7 +38,10 @@ def sell_new_item():
     title = input('Title > ')
     author = input('Author > ')
     genre = input('Genre > ')
-    Book.create_item(title, author, genre)
+    try:
+        Book.create_item(title, author, genre)
+    except Exception as exc:
+        print('Invalid book')
 
 def view_owned_items(user):
     owned = Book.get_all_available(user.id)

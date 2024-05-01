@@ -28,5 +28,5 @@ if __name__ == "__main__":
 
 
 ##define manager mode (idk what that means but maybe set it up for them to see everything thats ever been available to use get_all)
-##find way to add timers between things happening so its not so disorienting
 ##test the create property testers
+##Change order and make it where going back is uniform across everything so its not so weird

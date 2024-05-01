@@ -8,20 +8,20 @@ class Shopper():
 
     
     @property
-    def set_username(shopper):
+    def username(shopper):
         return shopper._username
-    @set_username.setter
-    def set_username(shopper, username):
+    @username.setter
+    def username(shopper, username):
         if isinstance(username, str):
             shopper._username = username
         else:
             print('username must be a string')
     
     @property
-    def set_password(shopper):
+    def password(shopper):
         return shopper._password
-    @set_password.setter
-    def set_password(shopper, password):
+    @password.setter
+    def password(shopper, password):
         if isinstance(password, str) and len(password) > 4:
             shopper._password = password
         else:
