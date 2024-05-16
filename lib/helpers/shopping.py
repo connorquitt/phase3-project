@@ -15,7 +15,21 @@ def manager():
     if store_pass == store.password:
         print()
 
+"""
+def shopping(user):
+    while True:
+        print(f'Welcome {user.username}, how can I help you today?')
+        print('1) Press I to go inside')
+        print('2) Press E to exit store')
+        choice = input('> ')
+        if choice.lower() == 'i':
+            menu(user)
+        elif choice.lower() == 'e':
+            leave_store()
+"""
 
+def menu(user):
+    pass
 
 def shopping(user):
     while True:
@@ -41,3 +55,4 @@ def shopping(user):
             leave_store()
         elif choice == '6':
             manager()
+
