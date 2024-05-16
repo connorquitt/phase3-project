@@ -5,8 +5,8 @@ from helpers.shopping import shopping
 
 
 def main():
-    active_shopper = account()
-    shopping(active_shopper)
+    user = account()
+    shopping(user)
 
 
 
@@ -14,19 +14,15 @@ def main():
 if __name__ == "__main__":
     main()
 
-#NEED TO DO TMR
-##set up checkout function to remove all items from cart and change their owner_id DONE
-##define book function to change owner_id DONE
-##change view_collection to only show the items with store owner_id DONE
-##define sell functions to sell any items owned by active shopper or to define new items to sell DONE
-##give function to Book class to show all books owned by active shopper DONE
-##set up view functions to only show title and not the whole object DONE
-##set up way to sell new item (used to create new item) DONE
-##define search functions DONE
-##set up more books in seeding DONE
-##consolodate functions so each page is less disorienting DONE
-
 
 ##define manager mode (idk what that means but maybe set it up for them to see everything thats ever been available to use get_all)
-##test the create property testers
+##test the create property testers DONE
 ##Change order and make it where going back is uniform across everything so its not so weird
+
+##It appears you have user_id as a foreign key but there is no class called user
+##They need to match
+##Also if your orm methods are up to date I suggest you cancel and meet with me first.
+##But it may be different now since I can't see so much of your code
+##If it is all corrected and pushed and you want to do it tomorrow I need to see your repo asap
+##As it stands now only seeing the models I suggest we go through it together before your assessment
+##I will look when you push it.  But if I don't see it by 3 I will go ahead and cancel your slot for tomorrow

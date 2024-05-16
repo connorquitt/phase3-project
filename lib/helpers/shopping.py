@@ -3,10 +3,17 @@ from helpers.search import search
 from helpers.approach_counter import approach_counter
 from helpers.shopping_cart import shopping_cart
 from helpers.shopping_cart import view_collection
+from models.shopper import Shopper
 
 def leave_store():
     print('Goodbye!')
     exit()
+
+def manager():
+    store = Shopper.find_user_by_id(1)
+    store_pass = input('password > ')
+    if store_pass == store.password:
+        print()
 
 
 
@@ -32,3 +39,5 @@ def shopping(user):
             approach_counter(user)
         elif choice == '5':
             leave_store()
+        elif choice == '6':
+            manager()

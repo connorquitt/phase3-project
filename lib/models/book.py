@@ -86,9 +86,9 @@ class Book():
         return cls.db_to_obj(row) if row else None
     
     @classmethod
-    def update_owner_id(cls, user_id, id):
+    def update_owner_id(cls, shopper_id, id):
         sql = """UPDATE inventory SET owner_id = ? WHERE id = ?"""
-        cur.execute(sql, (user_id, id,))
+        cur.execute(sql, (shopper_id, id,))
         con.commit()
     
     @classmethod
