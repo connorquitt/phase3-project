@@ -104,4 +104,12 @@ class Shopper():
         sql = """SELECT * FROM shoppers"""
         rows = cur.execute(sql).fetchall()
         
+        return [cls.db_to_obj(row) for row in rows]
+
+    def books(self):
+        from models.book import Book
+        sql = """SELECT * FROM inventory WHERE owner_id = ?"""
+        rows = cur.execute(sql, (self.id,),).fetchall()
+
+        #return [Book.db_to_obj(row) for row in rows]
         return rows

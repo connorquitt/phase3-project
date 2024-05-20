@@ -6,10 +6,6 @@ from helpers.shopping_cart import add_to_cart
 from helpers.shopping_cart import view_collection
 from models.shopper import Shopper
 
-def leave_store():
-    print('Goodbye!')
-    exit()
-
 
 
 def shopping(user):
