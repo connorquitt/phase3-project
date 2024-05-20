@@ -82,18 +82,61 @@ def modify_or_delete_menu():
                     password = input('Please enter new password > ')
                     Shopper.update_password(password, modify_shopper.id)
             else:
-                print('l;akjdf')
+                print('Invalid input please try again')
         elif choice == '2':
-            delete_shopper = select_shopper()
-            print(f'Are you sure you want to permenantly delete {delete_shopper.username}? Y/N')
-            delete_choice = input('> ')
-            if delete_choice.lower() == 'y':
-                Shopper.delete_user(delete_shopper.id)
-            elif delete_choice.lower() == 'n':
-                print('Action canceled')
-                return None
+            shopper = select_shopper()
+            delete_shopper(shopper)
         else:
             print('Invalid choice, please select from the given options')
+
+def view_shopper_books(shopper):
+        for i, book in enumerate(shopper.books(), start = 1):
+            print(f"{i}) {book.title} | {book.author} | {book.genre}")
+
+def add_books_to_shopper(shopper):
+    while True:
+        print(f"1) Add a new book to {shopper.username}")
+        print(f"2) Add book from store inventory")
+        print('Press "e" to leave')
+        choice = input('> ')
+        if choice.lower() == 'e':
+            return None
+        elif choice == '1':
+            title = input('Title: ')
+            author = input('Author: ')
+            genre = input('Genre: ')
+            try:
+                Book.create_item(title, author, genre, owner_id=shopper.id)
+            except Exception as exc:
+                print('Invalid book')
+        elif choice == '2':
+            books = Book.get_all_available()
+            view_collection()
+            book_choice = input('Select which book to give > ')
+            if book_choice.isnumeric() and len(books) >= int(book_choice):
+                book = books[int(book_choice) -1]
+                book.update_owner_id(shopper.id, book.id)
+            else:
+                print('Invalid choice, please select one one of the available options')
+
+def delete_book_from_shopper(shopper):
+    books = shopper.books()
+    if len(books) >= 1:
+        view_shopper_books(shopper)
+        choice = input(f"Please select book to remove from {shopper.username}'s account > ")
+        book = books[int(choice) -1]
+        ##Store ID is 1, setting ID to one returns it to store inventory
+        book.update_owner_id(1, book.id)
+        print(book.title)
+    else:
+        print('Shopper has no books')
+
+def delete_shopper(shopper):
+    choice = input(f'Are you sure you want to delete {shopper.username}? Y/N')
+    if choice.lower() == 'y':
+        Shopper.delete_user(shopper.id)
+    elif choice.lower() == 'n':
+        print('Canceling action')
 
 def stars():
     print('******************')
@@ -114,6 +157,7 @@ def main():
             view_all_shoppers()
         elif choice == '2':
             shopper = select_shopper()
+            shopper_menu(shopper)
         elif choice == '3':
             add_shopper()
         elif choice == '4':
@@ -125,12 +169,28 @@ def main():
         else:
             print('Invalid choice, please select a number 1-5')
     
-
+def shopper_menu(shopper):
+    while True:
+        print(f"{shopper.username}'s menu: ")
+        print(f"1) View {shopper.username}'s books")
+        print(f"2) Add books to {shopper.username}") 
+        print(f"3) Remove books from {shopper.username}")
+        print(f"4) Delete {shopper.username}")
+        print('Press "e" to leave')
+        choice = input('> ')
+        if choice.lower() == 'e':
+            leave_store()
+        elif choice == '1':
+            view_shopper_books(shopper)
+        elif choice == '2':
+            add_books_to_shopper(shopper)
+        elif choice == '3':
+            delete_book_from_shopper(shopper)
+        elif choice == '4':
+            delete_shopper(shopper)
 
 if __name__ == "__main__":
     main()
-
-
 
 
 """

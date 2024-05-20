@@ -26,4 +26,4 @@ def shopping(user):
         elif choice == '4':
             approach_counter(user)
         elif choice == '5':
-            leave_store()
+            pass

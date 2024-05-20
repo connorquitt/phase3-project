@@ -111,5 +111,4 @@ class Shopper():
         sql = """SELECT * FROM inventory WHERE owner_id = ?"""
         rows = cur.execute(sql, (self.id,),).fetchall()
 
-        #return [Book.db_to_obj(row) for row in rows]
-        return rows
+        return [Book.db_to_obj(row) for row in rows]

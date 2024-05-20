@@ -99,7 +99,7 @@ class Book():
         return rows
     
     @classmethod
-    def get_all_available(cls, owner_id):
+    def get_all_available(cls, owner_id=1):
         sql = """SELECT * FROM inventory WHERE owner_id = ?"""
         rows = cur.execute(sql, (owner_id,)).fetchall()
         
