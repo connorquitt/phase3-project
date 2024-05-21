@@ -27,6 +27,7 @@ def main():
             view_collection()
             stars()
             add_book_to_store()
+            ##add delete thing here
         else:
             print('Invalid choice, please select a number 1-5')
     

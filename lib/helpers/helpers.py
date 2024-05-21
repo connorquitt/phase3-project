@@ -16,7 +16,7 @@ def select_shopper():
         shoppers = Shopper.get_all()
         choice = input('Please select shopper >')
         if choice.lower() == 'e':
-            leave_store()
+            return None
         elif choice.isnumeric() and len(shoppers) >= int(choice):
             current_shopper = shoppers[int(choice) -1]
             return current_shopper
@@ -67,7 +67,7 @@ def modify_or_delete_menu():
         print('2) Delete a shopper')
         choice = input('> ')
         if choice.lower() == 'e':
-            leave_store()
+            return None
         elif choice == '1':
             modify_shopper = select_shopper()
             print('Update username? Y/N')
