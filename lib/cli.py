@@ -80,14 +80,4 @@ if __name__ == "__main__":
     main()
 
 
-"""
-1) Changing app to be an app for the owner
-    - No longer need login or account stuff
-    - the menu needs to start with seeing all users, select user, delete user, modify user, and view inventory (allow to add books that are "owned" by the store/delete books)
-        - After selecting a user need to keep it saved similar to how account does, give options to view, add, or delete books that are owned by a shopper
-            - Add books method to shopper to show all books owned by said shopper and give books a shopper method to show the owner of the book
-    - Get the code for the numbering thing that nancy talked about
-    -README needs to be done like rn
-"""
-
 
