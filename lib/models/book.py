@@ -7,7 +7,6 @@ class Book():
         self.genre = genre
         self.shopper_id = shopper_id
         self.id = id
-        #use shopper id
 
     @property
     def title(self):
@@ -69,13 +68,13 @@ class Book():
     def create_item(cls, title, author, genre, shopper_id=1):
         item = cls(title, author, genre, shopper_id)
         sql = """INSERT INTO Books (title, author, genre, shopper_id) VALUES (?, ?, ?, ?)"""
-        cur.execute(sql, (item.title, item.author, item.genre, item.shopper_id,))
+        cur.execute(sql, (item.title, item.author, item.genre, shopper_id,))
         con.commit()
     
     
     @classmethod
     def delete_item(cls, id):
-        sql = """DELETE FROM iventory WHERE id = ?"""
+        sql = """DELETE FROM Books WHERE id = ?"""
         cur.execute(sql, (id,))
         con.commit()
     

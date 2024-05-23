@@ -47,7 +47,7 @@ def view_collection():
 def add_book_to_store():
     while True:
         print('Press enter to add a book')
-        print('Press "e" to leave')
+        print('Press "e" to go back')
         choice = input('> ')
         if choice.lower() == 'e':
             return None
@@ -90,27 +90,18 @@ def modify_or_delete_menu():
 
 def add_books_to_shopper(shopper):
     while True:
-        print(f"1) Add a new book to {shopper.username}")
-        print(f"2) Add book from store inventory")
+        print(f"1) Add book from store inventory")
         print('Press "e" to leave')
         choice = input('> ')
         if choice.lower() == 'e':
             return None
         elif choice == '1':
-            title = input('Title: ')
-            author = input('Author: ')
-            genre = input('Genre: ')
-            try:
-                Book.create_item(title, author, genre, owner_id=shopper.id)
-            except Exception as exc:
-                print('Invalid book')
-        elif choice == '2':
             books = Book.get_all_available()
             view_collection()
             book_choice = input('Select which book to give > ')
             if book_choice.isnumeric() and len(books) >= int(book_choice):
                 book = books[int(book_choice) -1]
-                book.update_owner_id(shopper.id, book.id)
+                book.update_shopper_id(shopper.id, book.id)
             else:
                 print('Invalid choice, please select one one of the available options')
 
@@ -125,13 +116,13 @@ def delete_book_from_shopper(shopper):
         choice = input(f"Please select book to remove from {shopper.username}'s account > ")
         book = books[int(choice) -1]
         ##Store ID is 1, setting ID to one returns it to store inventory
-        book.update_owner_id(1, book.id)
+        book.update_shopper_id(1, book.id)
         print(book.title)
     else:
         print('Shopper has no books')
 
 def delete_shopper(shopper):
-    choice = input(f'Are you sure you want to delete {shopper.username}? Y/N')
+    choice = input(f'Are you sure you want to delete {shopper.username}? Y/N? > ')
     if choice.lower() == 'y':
         Shopper.delete_user(shopper.id)
     elif choice.lower() == 'n':

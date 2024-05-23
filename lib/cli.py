@@ -1,6 +1,6 @@
 # lib/cli.py
 from helpers.helpers import leave_store, view_all_shoppers, select_shopper, add_shopper, view_collection, add_book_to_store, modify_or_delete_menu, view_shopper_books, add_books_to_shopper, delete_book_from_shopper, delete_shopper, stars
-
+from models.book import Book
 
 def main():
     while True:
@@ -11,6 +11,7 @@ def main():
         print('3) Add shopper')
         print('4) Modify or delete shopper')
         print('5) View inventory')
+        print('6) Add/delete book')
         choice = input('> ')
         if choice.lower() == 'e':
             leave_store()
@@ -25,11 +26,35 @@ def main():
             modify_or_delete_menu()
         elif choice == '5':
             view_collection()
-            stars()
-            add_book_to_store()
-            ##add delete thing here
+        elif choice == '6':
+            print('1) Add book')
+            print('2) Delete book')
+            choice = input('> ')
+            if choice.lower() == 'e':
+                return None
+            elif choice == '1':
+                add_book_to_store()
+            elif choice == '2':
+                book = select_book()
+                delete_book_from_store(book)
+
         else:
             print('Invalid choice, please select a number 1-5')
+
+def select_book():
+    view_collection()
+    book_list = Book.get_all_available(1)
+    choice = input('Please select book to delete > ')
+    if choice.isnumeric():
+        current_book = book_list[int(choice) - 1]
+        return current_book
+
+def delete_book_from_store(book):
+    choice = input(f'Are you sure you want to permanently delete {book.title}? Y/N > ')
+    if choice.lower() == 'y':
+        Book.delete_item(book.id)
+    if choice.lower() == 'n':
+        return None
     
 def shopper_menu(shopper):
     while True:
@@ -64,3 +89,5 @@ if __name__ == "__main__":
     - Get the code for the numbering thing that nancy talked about
     -README needs to be done like rn
 """
+
+
